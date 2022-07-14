@@ -1,0 +1,9 @@
+FROM golang:alpine3.16
+
+WORKDIR /app
+COPY . /app/
+RUN if [[ -f "go.mod" ]] ; then echo "go.mod exists" ; else  ; fiRUN go mod init
+RUN go build -o app
+
+ENTRYPOINT ./app
+
